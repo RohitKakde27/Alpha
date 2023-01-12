@@ -3,7 +3,9 @@ pipeline{
         jdk 'myjava'
         maven 'mymaven'
     }
-	agent any
+	agent {
+           label 'slave'
+       }
       stages{
            stage('pull'){
                steps{
