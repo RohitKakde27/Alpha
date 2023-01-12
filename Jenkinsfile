@@ -22,7 +22,13 @@ pipeline {
         
         stage('Test') {
               steps {
-                 echo "Build stage is running"
+                 echo "Testing artifect stage is running"
+                 sh """
+                        mvn sonar:sonar \
+                         -Dsonar.projectKey=project \
+                         -Dsonar.host.url=http://43.205.135.117:9000 \
+                         -Dsonar.login=91c8616c0c3f4f1482e233027d42e5e58341123a
+                    """
               }
          }
         
