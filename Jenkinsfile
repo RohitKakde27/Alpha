@@ -2,7 +2,7 @@ pipeline {
      agent any
      tools {
         maven 'mymaven'
-        jdk 'myjdk' 
+        jdk 'myjava' 
     }
      stages {
         stage('Pull') {
