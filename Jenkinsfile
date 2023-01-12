@@ -9,7 +9,7 @@ pipeline {
                     }
                     steps {
                         	echo "Running in windows agent"
-		bat 'echo %PATH%'
+		sh "hostname -i"
                     }
                 }
                 stage('linux script') {
@@ -17,7 +17,7 @@ pipeline {
                         label "slave"
                     }
                     steps {
-                       sh "Running in Linux agent"
+                       sh "hostname -i"
                     }
                 }
              }
