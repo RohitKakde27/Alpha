@@ -5,7 +5,10 @@ pipeline{
     }
 	agent any
       stages{
-           stage('pull'){   
+           stage('pull'){
+                agent{
+                    label 'Master'
+                     }   
                steps{
 		 echo 'cloning..'
                  git branch: 'main', url: 'https://github.com/RohitKakde27/Alpha.git'
@@ -13,6 +16,9 @@ pipeline{
               }
           }
           stage('Build'){
+                agent{
+                    label 'slave'
+                     }
               steps{
                   echo 'Code-Build..'
                   sh 'mvn compile'
@@ -21,7 +27,7 @@ pipeline{
           }
           stage('Package'){
                 agent{
-                    label 'slave'
+                    label 'master'
                      }
               steps{
                   sh 'mvn package'
