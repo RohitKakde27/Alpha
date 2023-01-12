@@ -7,7 +7,8 @@ pipeline {
      stages {
         stage('Pull') {
               steps {
-                 echo "Build stage is running"
+                 echo ' pulling code '
+                 git branch: 'main', url: 'https://github.com/RohitKakde27/Alpha.git'
               }
          }
         stage('Build') {
