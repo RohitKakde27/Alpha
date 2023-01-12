@@ -1,26 +1,26 @@
 pipeline {
-    agent any
-    stages {
-           stage('Parallel Stage') {
-              parallel {
-                stage('windows script') {
-                    agent {
-                        label "master"
-                    }
-                    steps {
-                        	echo "Running in windows agent"
-		sh "hostname -i"
-                    }
-                }
-                stage('linux script') {
-                    agent {
-                        label "slave"
-                    }
-                    steps {
-                       sh "hostname -i"
-                    }
-                }
-             }
-        }
-    }
+     agent any
+     stages {
+        stage('Pull') {
+              steps {
+                 echo "Build stage is running"
+              }
+         }
+        stage('Build') {
+              steps {
+                 echo "Build stage is running"
+              }
+         }
+        stage('Test') {
+              steps {
+                 echo "Build stage is running"
+              }
+         }
+        stage('Deploy') {
+              steps {
+                 echo "Build stage is running"
+              }
+         }
+        
+     }
 }
