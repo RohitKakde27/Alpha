@@ -6,7 +6,7 @@ pipeline{
 	agent any
       stages{
            stage('pull'){
-                agent{
+                when{
                     label 'master'
                      }   
                steps{
