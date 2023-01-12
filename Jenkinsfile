@@ -38,7 +38,7 @@ pipeline {
                 sshagent(['tomy']) {
                     
                     echo "Deployment stage is running"
-                    sh 'scp -o StrictHostKeyChecking=no target/studentapp-2.2-SNAPSHOT.war  centos@172.31.42.231:/opt/apache-tomcat-8.5.84/webapps/'
+                    sh "scp -o StrictHostKeyChecking=no target/studentapp-2.2-SNAPSHOT.war  centos@172.31.42.231:/opt/apache-tomcat-8.5.84/webapps/"
                     
                 }
               }
