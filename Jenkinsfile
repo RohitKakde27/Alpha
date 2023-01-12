@@ -33,6 +33,7 @@ pipeline {
          }
         
         stage('Deploy') {
+            myVar = "Key-1.pem"
               steps{
                 sshagent(['tomy']) {
     // some block
