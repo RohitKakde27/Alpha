@@ -20,7 +20,7 @@ pipeline{
 	      }
           }
           stage('Package'){
-                when{
+                agent{
                     label 'slave'
                      }
               steps{
