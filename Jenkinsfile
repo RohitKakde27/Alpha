@@ -3,7 +3,8 @@ pipeline {
      tools {
         maven 'mymaven'
         jdk 'myjava' 
-    }
+            }
+     
      stages {
         
         stage('Pull') {
@@ -34,13 +35,11 @@ pipeline {
         
         stage('Deploy') {
               steps{
-                myVar = "Key-1.pem"
                 sshagent(['tomy']) {
-    // some block
- 
+                    
                     echo "Deployment stage is running"
                     sh """
-                        ssh -i Key-1.pem centos@172.31.42.231
+                        ssh -i ${Key-1.pem} centos@172.31.42.231
                         scp -o StrictHostKeyChecking=no target/studentapp-2.2-SNAPSHOT.war -i Key-1.pem centos@172.31.42.231:/opt/apache-tomcat-8.5.84/webapps/
                         ssh centos@172.31.42.231 /opt/apache-tomcat-8.5.84/bin/shutdown.sh
                         ssh centos@172.31.42.231 /opt/apache-tomcat-8.5.84/bin/startup.sh
