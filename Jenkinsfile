@@ -7,7 +7,7 @@ pipeline{
       stages{
            stage('pull'){
                 agent{
-                    label 'Master'
+                    label 'master'
                      }   
                steps{
 		 echo 'cloning..'
