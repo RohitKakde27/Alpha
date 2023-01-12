@@ -17,6 +17,7 @@ pipeline{
               steps{
                   echo 'Code-Build..'
                   sh 'mvn compile'
+                  sh 'hostname -i'
 	      }
           }
           stage('Package'){
