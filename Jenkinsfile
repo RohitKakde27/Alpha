@@ -39,7 +39,7 @@ pipeline {
                     
                     echo "Deployment stage is running"
                     sh 'scp -o StrictHostKeyChecking=no target/studentapp-2.2-SNAPSHOT.war  centos@172.31.42.231:/opt/apache-tomcat-8.5.84/webapps/'
-                    sh 'ssh centos@172.31.42.231 /opt/apache-tomcat-8.5.84/bin/shutdown.sh'   
+                    sh 'ssh StrictHostKeyChecking=no centos@172.31.42.231 /opt/apache-tomcat-8.5.84/bin/shutdown.sh'   
               
                 }
               }
