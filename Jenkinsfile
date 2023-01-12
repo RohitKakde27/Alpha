@@ -21,10 +21,8 @@ pipeline{
           }
           stage('Package'){
                 when{
-                    
-           label 'slave'
-       
-                }
+                    label 'slave'
+                     }
               steps{
                   sh 'mvn package'
                   sh 'hostname -i'
