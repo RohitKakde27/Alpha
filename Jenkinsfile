@@ -3,17 +3,26 @@ pipeline{
         jdk 'myjava'
         maven 'mymaven'
     }
-	agent {
-           label 'slave'
-       }
+	agent any
       stages{
            stage('pull'){
+                when{
+                    agent {
+           label 'slave'
+       }
+                }
                steps{
 		 echo 'cloning..'
                  git branch: 'main', url: 'https://github.com/RohitKakde27/Alpha.git'
+                 sh 'hostname -i'
               }
           }
           stage('Build'){
+                when{
+                    agent {
+           label 'master'
+       }
+                }
               steps{
                   echo 'Code-Build..'
                   sh 'mvn compile'
@@ -21,8 +30,14 @@ pipeline{
 	      }
           }
           stage('Package'){
+                when{
+                    agent {
+           label 'slave'
+       }
+                }
               steps{
                   sh 'mvn package'
+                  sh 'hostname -i'
               }
           }
           stage('deploy-dev'){
